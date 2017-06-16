@@ -1,0 +1,278 @@
+<!-- Start: HEADER -->
+
+
+
+<header>
+
+
+
+<!-- start: TOP BAR -->
+
+  <?php /*?><div class="clearfix " id="topbar">
+
+
+
+    <div class="container">
+
+
+
+      <div class="row">
+
+
+
+        <div class="col-sm-2">
+
+
+
+          <!-- start: TOP BAR CURRENCY SELECTOR -->
+
+
+
+          <?php if($this->config->item('multi-currency')){?>
+
+
+
+          <form action="<?=base_url('home/currencies');?>" id="currencies-switch" method="post">
+
+  			<?php echo $st = currency_droupdown(); ?>
+
+         <!-- <div class="bfh-selectbox bfh-currencies" data-currency="<?=defaultCurrency();?>" data-name="currency" data-blank="false" data-flags="true" data-available="USD,GBP,INR,AED"></div>-->
+
+          </form>
+
+           <?php }?>
+
+
+
+          <!-- end: TOP BAR CURRENCY SELECTOR -->
+
+
+
+        </div>       
+
+
+
+        <div class="col-sm-2"> 
+
+
+
+          <!-- start: TOP BAR LANGUAGE SELECTOR -->
+
+
+
+           <?php if($this->config->item('multi-language')){?>
+
+
+
+          <form action="<?=base_url('home/languages');?>" id="languages-switch" method="post">
+
+
+
+          <div class="bfh-selectbox bfh-languages" data-language="<?=defaultLanguage();?>" data-name="language" data-blank="false" data-available="en_US,fr_CA,es_MX" data-flags="true"></div>
+
+
+
+          </form>
+
+
+
+          <?php }?>
+
+
+
+          <!-- end: TOP BAR LANGUAGE SELECTOR --> 
+
+
+
+        </div>
+
+
+
+                
+
+
+
+        <div class="col-sm-8">        	         
+
+
+
+          <!-- start: TOP BAR SOCIAL ICONS -->
+
+
+
+          <div class="social-icons">
+
+
+
+            <ul>
+
+
+
+              <li class="social-twitter tooltips" data-original-title="Twitter" data-placement="bottom"> <a target="_blank" href="http://www.twitter.com/"> Twitter </a> </li>
+
+
+
+              <li class="social-dribbble tooltips" data-original-title="Dribbble" data-placement="bottom"> <a target="_blank" href="http://dribbble.com/"> Dribbble </a> </li>
+
+
+
+              <li class="social-facebook tooltips" data-original-title="Facebook" data-placement="bottom"> <a target="_blank" href="http://facebook.com/"> Facebook </a> </li>
+
+
+
+              <li class="social-google tooltips" data-original-title="Google" data-placement="bottom"> <a target="_blank" href="http://google.com/"> Google+ </a> </li>
+
+
+
+              <li class="social-linkedin tooltips" data-original-title="LinkedIn" data-placement="bottom"> <a target="_blank" href="http://linkedin.com/"> LinkedIn </a> </li>
+
+
+
+              <li class="social-youtube tooltips" data-original-title="YouTube" data-placement="bottom"> <a target="_blank" href="http://youtube.com/"> YouTube </a> </li>
+
+
+
+              <li class="social-rss tooltips" data-original-title="RSS" data-placement="bottom"> <a target="_blank" href="#" > RSS </a> </li>
+
+
+
+            </ul>
+
+
+
+          </div>
+
+
+
+          <!-- end: TOP BAR SOCIAL ICONS --> 
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+  </div><?php */?>
+
+<!-- end: TOP BAR -->
+
+<div class="navbar navbar-default navbar-transparent navbar-fixed-top homenav"> 
+
+  <div class="container">
+
+    <div class="navbar-header navbar_home_header">
+
+      <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+
+      <a class="navbar-brand" href="<?=base_url();?>"><?=config_item('site_name');?></a> 
+
+
+	<div class="home_resp_nav icon_menu_resp visible-xs hidden-sm hidden-md hidden-lg">
+    	<ul>
+        		 <?php 
+            $user_id = '';
+			$user_id = $this->session->userdata('user_id');
+			if(empty($user_id)){
+        ?>
+        <li> <a data-toggle="modal" data-target="#signin_signup" href="#">
+			   <i class="fa fa-user"></i><?=translate('Sign in');?>
+			 </a>
+		</li>
+            <?php } else{
+							$groupName = $this->session->userdata('groupName');
+                            $profilePic = getCurrentProfilePic($user_id, USER_IMAGE_150150);
+				?>
+            <li class="dropdown current-user" id="userNavigation"> 
+               <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0)"> 
+					<img src="<?=$profilePic?>" style="width:30px;height:30px;" class="circle-img"> 
+						<span class="username">
+							<?php echo ucfirst($this->session->userdata('name'));?>
+						</span> 
+							<i class="clip-chevron-down"></i>
+			  </a>
+			       <ul class="dropdown-menu pull-right">
+                      <li> <a href="<?=base_url('mydashboard/profile');?>"> <i class="clip-user-2"></i>&nbsp;My Profile </a> </li>
+                      <li> <a href="<?=base_url('mydashboard/editprofile');?>"> <i class="clip-pencil-2"></i>&nbsp;Edit Profile </a> </li>
+                      <li> <a href="<?=base_url('mydashboard/setting');?>"> <i class="clip-pencil-2"></i>&nbsp;Setting </a> </li>
+                     <!-- <li> <a href="<?=base_url('mydashboard/subscription');?>"> <i class="clip-history"></i>&nbsp;Subscription </a> </li>-->
+                      <li> <a href="<?=base_url('mydashboard/changePassword');?>"> <i class="fa fa-refresh"></i> &nbsp;Change Password </a> </li>
+                      <li class="divider"></li>
+                      <li> <a href="<?php echo base_url('user/signout');?>"> <i class="clip-exit"></i>&nbsp;Log Out </a> </li>
+                   </ul>
+			 </li> 
+		    <?php } ?> 
+        </ul>
+    </div>
+    </div>
+
+    <div class="navbar-collapse collapse navbar_collapse_home">
+
+      <ul class="nav navbar-nav navbar-right">
+	  
+	  <?php 
+		  $groupId=$this->session->userdata('group_id'); ?>
+		
+		     <li> <a href="<?=base_url('home/advertise');?>"><?=translate('Advertise');?></a> </li>
+		 
+
+        <!--<li> <a data-toggle="modal" data-target="#signin_signup" href="#signin_tabs"><?=translate('Sign In');?></a> </li>-->        
+       <!-- <li> <a href="<?=base_url('advise');?>"><?=translate('Advise');?></a> </li> -->
+
+		<li> <a href="<?=base_url('blog');?>"><?=translate('Blog');?></a> </li> 
+
+        <li> <a href="<?=base_url('faq');?>"><?=translate('Help');?></a> </li> 
+        
+        <?php 
+            $user_id = '';
+			$user_id = $this->session->userdata('user_id');
+			if(empty($user_id)){
+        ?>
+        <li id="homesignin"> <a data-toggle="modal" data-target="#signin_signup" href="#">
+			   <i class="fa fa-user"></i><?=translate('Sign in');?>
+			 </a>
+		</li>
+            <?php } else{
+							$groupName = $this->session->userdata('groupName');
+                            $profilePic = getCurrentProfilePic($user_id, USER_IMAGE_150150);
+				?>
+            <li class="dropdown current-user userNavigation_home" id="userNavigation"> 
+               <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0)"> 
+					<img src="<?=$profilePic?>" style="width:30px;height:30px;" class="circle-img"> 
+						<span class="username">
+							<?php echo ucfirst($this->session->userdata('name'));?>
+						</span> 
+							<i class="clip-chevron-down"></i>
+			  </a>
+			       <ul class="dropdown-menu pull-right">
+                      <li> <a href="<?=base_url('mydashboard/profile');?>"> <i class="clip-user-2"></i>&nbsp;My Profile </a> </li>
+                      <li> <a href="<?=base_url('mydashboard/editprofile');?>"> <i class="clip-pencil-2"></i>&nbsp;Edit Profile </a> </li>
+                      <li> <a href="<?=base_url('mydashboard/setting');?>"> <i class="clip-pencil-2"></i>&nbsp;Setting </a> </li>
+                     <!-- <li> <a href="<?=base_url('mydashboard/subscription');?>"> <i class="clip-history"></i>&nbsp;Subscription </a> </li>-->
+                      <li> <a href="<?=base_url('mydashboard/changePassword');?>"> <i class="fa fa-refresh"></i> &nbsp;Change Password </a> </li>
+                      <li class="divider"></li>
+                      <li> <a href="<?php echo base_url('user/signout');?>"> <i class="clip-exit"></i>&nbsp;Log Out </a> </li>
+                   </ul>
+			 </li> 
+		    <?php } ?> 
+      </ul>
+
+    </div>
+
+  </div>
+
+  <!-- end: TOP NAVIGATION CONTAINER --> 
+
+</div>
+
+</header>
+
+
+

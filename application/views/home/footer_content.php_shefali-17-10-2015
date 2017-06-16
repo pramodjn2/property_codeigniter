@@ -1,0 +1,61 @@
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="newsletter">
+          <h4>Quick Links</h4>
+          <ul class="contact quicklinks">
+            <li><a href="<?php echo base_url('page/about_us');?>">About</a></li>
+            <li><a href="<?php echo base_url('page/press');?>">Press</a></li>
+            <li><a href="<?php echo base_url('blog');?>">Blog</a></li>
+            <li><a href="<?php echo base_url('faq');?>">Help</a></li>
+            <li><a href="<?php echo base_url('page/policies');?>">Policies</a></li>
+            <li><a href="<?php echo base_url('page/terms_and_privacy');?>">Terms & Privacy</a></li>
+            <div class="clear"></div>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-12">
+        <h4>Other Links</h4>
+        <ul class="contact quicklinks">
+          <li><a href="<?php echo base_url('page/trust_and_safety');?>">Trust & Safety</a></li>
+          <li><a href="<?php echo base_url('page/support');?>">Support</a></li>
+		  <li><a href="<?php echo base_url('page/career');?>">Career</a></li>
+          <li><a href="<?php echo base_url('page/site_map');?>">Site Map</a></li>
+          <div class="clear"></div>
+        </ul>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="contact-details">
+          <h4>Find Us</h4>
+          <ul class="contact">
+            <li>
+              <p>1234 Street Name, City Name,<br/>
+                United Kingdom </p>
+            </li>
+            <li>
+              <p><strong>Phone:</strong> (123) 456-7890 </p>
+              <p><strong>Fax:</strong> (123) 456-7890 </p>
+            </li>
+            <li>
+              <p><strong>Email:</strong> <a href="mailto:mail@example.com"> mail@example.com </a> </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-2 col-xs-12"> <a class="footer_logo" href="<?php echo config_item('base_url');?>"> <img alt="Otriga" src="<?php echo base_url('assets/images/emailer-logo.png');?>"> </a>
+        <div class="copyright">
+          <p> &copy; 2015 by Otriga</p>
+          <p> All Rights Reserved. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      <div class="row"> </div>
+    </div>
+  </div>
+</footer>
+<a id="scroll-top" href="#"><i class="fa fa-angle-up"></i></a> 
+<!-- end: FOOTER --> 
